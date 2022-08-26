@@ -1,16 +1,12 @@
-from typing import TypeVar
-
 import pyspark.sql.functions as F
 from pyspark.sql import DataFrame
-
-T = TypeVar("T")
 
 
 def filter_range(
     df: DataFrame,
     col: str,
-    from_: T,
-    to: T,
+    from_,
+    to,
     include_from: bool = True,
     include_to: bool = True,
 ) -> DataFrame:
