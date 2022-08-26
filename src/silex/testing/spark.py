@@ -1,7 +1,7 @@
 from pyspark.sql import DataFrame
 
 
-def schema_equals(df1: DataFrame, df2: DataFrame, check_nullable=True):
+def schema_equals(df1: DataFrame, df2: DataFrame, check_nullable: bool):
     def field_list(fields):
         return fields.name, fields.dataType, fields.nullable
 
@@ -14,13 +14,17 @@ def schema_equals(df1: DataFrame, df2: DataFrame, check_nullable=True):
     return res
 
 
-def data_equals(df1: DataFrame, df2: DataFrame):
+def data_equals(df1: DataFrame, df2: DataFrame, sort_cols: bool):
+    if sort_cols:
+        df1 = df1.select(sorted(df1.columns))
+        df2 = df2.select(sorted(df2.columns))
+
     data1 = df1.collect()
     data2 = df2.collect()
     return set(data1) == set(data2)
 
 
-def df_equals(df1: DataFrame, df2: DataFrame, check_nullable):
-    return schema_equals(df1, df2, check_nullable=check_nullable) and data_equals(
-        df1, df2
-    )
+def df_equals(df1: DataFrame, df2: DataFrame, check_nullable: bool, sort_cols: bool):
+    schema = schema_equals(df1, df2, check_nullable=check_nullable)
+    data = data_equals(df1, df2, sort_cols=sort_cols)
+    return schema and data

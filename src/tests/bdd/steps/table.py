@@ -33,4 +33,16 @@ def step_impl(context, left, right):
     left_df.show()
     right_df.show()
 
-    assert df_equals(left_df, right_df, check_nullable=True)
+    assert df_equals(left_df, right_df, check_nullable=True, sort_cols=True)
+
+
+@step('the "{left}" table does not match the "{right}" table')
+def step_impl(context, left, right):
+    left_df = getattr(context, left)
+    right_df = getattr(context, right)
+
+    # useful for debugging
+    left_df.show()
+    right_df.show()
+
+    assert not df_equals(left_df, right_df, check_nullable=True, sort_cols=True)
