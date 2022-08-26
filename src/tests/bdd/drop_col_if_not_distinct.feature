@@ -14,7 +14,7 @@ Feature: Dropping columns for not having distinct values
         | 0  |
         | 1  |
         | 2  |
-      When we do "drop_col_if_not_distinct" on table "input" with parameters "{}" and save to "output" table
+      When we do "drop_col_if_not_distinct" on table "input" and save to "output" table
       Then the "output" table matches the "expected" table
     Scenario: Distinct values with null, null are not counted
       Given a table named "input"
@@ -38,7 +38,7 @@ Feature: Dropping columns for not having distinct values
         | 0  | a      |
         | 1  | c      |
         | 1  | b      |
-      When we do "drop_col_if_not_distinct" on table "input" with parameters "{}" and save to "output" table
+      When we do "drop_col_if_not_distinct" on table "input" and save to "output" table
       Then the "output" table matches the "expected" table
     Scenario: Threshold set at 3 different values, null are not counted
       Given a table named "input"
@@ -51,5 +51,6 @@ Feature: Dropping columns for not having distinct values
         | 0  |
         | 1  |
         | 2  |
-      When we do "drop_col_if_not_distinct" on table "input" with parameters "{"min": 3}" and save to "output" table
+      And parameters "{"min": 3}"
+      When we do "drop_col_if_not_distinct" on table "input" and save to "output" table
       Then the "output" table matches the "expected" table

@@ -13,7 +13,7 @@ Feature: Dropping columns having null values
         | 0  | 0     |
         | 1  | 1     |
         | 2  | 2     |
-      When we do "drop_col_if_na" on table "input" with parameters "{}" and save to "output" table
+      When we do "drop_col_if_na" on table "input" and save to "output" table
       Then the "output" table matches the "expected" table
     Scenario: 1 null and no threshold
       Given a table named "input"
@@ -26,7 +26,7 @@ Feature: Dropping columns having null values
         | 0  |
         | 1  |
         | 2  |
-      When we do "drop_col_if_na" on table "input" with parameters "{}" and save to "output" table
+      When we do "drop_col_if_na" on table "input" and save to "output" table
       Then the "output" table matches the "expected" table
     Scenario: 1 column below threshold and another above
       Given a table named "input"
@@ -39,5 +39,6 @@ Feature: Dropping columns having null values
         | 0  | a      |
         | 1  | <NULL> |
         | 2  | b      |
-      When we do "drop_col_if_na" on table "input" with parameters "{"max": 1}" and save to "output" table
+      And parameters "{"max": 1}"
+      When we do "drop_col_if_na" on table "input" and save to "output" table
       Then the "output" table matches the "expected" table
