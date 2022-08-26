@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "silex"
+version = "0.1.0"
+description = "Silex adds more sparks to your project!"
+authors = ["RickCi <rci-git@pm.me>"]
+readme = "README.md"
+
+packages = [ { include = "silex", from = "src" } ]
+
+[tool.poetry.dependencies]
+python = ">=3.8, <4"
+pyspark = ">=3.2.2"
+
+[tool.poetry.dev-dependencies]
+bandit = "*"               # security practices                    https://github.com/PyCQA/bandit
+behave = "^1.2.6"          # behavioral tests
+black = ">=22.3.0"         # automatic linter                      https://github.com/psf/black
+coverage = "*"             # unit and bdd tests code coverage
+flake8 = "*"               # utility tool                          https://gitlab.com/pycqa/flake8
+flake8-black = "*"         # ensure black has been ran
+flake8-builtins = "*"      # check for python builtins being used as variables or parameters.
+flake8-eradicate = "*"     # checks for dead code
+flake8-fixme = "*"         # fix-me and todos
+flake8-print = "*"         # print usage, logger should be used
+isort = "*"                # sort imports                          https://github.com/timothycrosley/isort
+mypy = "*"                 # static type checker                   https://github.com/python/mypy
+pre-commit = "*"           # Git hook scripts                      https://pre-commit.com/
+pylint = "*"               # code analysis                         https://www.pylint.org/
+pytest = "*"               # unit tests                            https://docs.pytest.org/en/latest/
+pytest-cov = "*"           # unit tests coverage
+safety = "*"               # check for package vulnerabilities     https://github.com/pyupio/safety
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
