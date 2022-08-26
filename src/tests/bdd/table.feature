@@ -1,4 +1,3 @@
-@wip
 Feature: Table
     Background:
       Given a Spark Session
