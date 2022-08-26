@@ -3,7 +3,7 @@ from typing import List
 from behave import step
 
 from silex.testing.spark import df_equals
-from silex.testing.string import try_casting_to_number
+from silex.testing.string import parse
 
 
 @step('a table named "{name}"')
@@ -18,7 +18,7 @@ def step_impl(context, name: str):
             if col in ["id", "identifier"]:
                 value = int(value)
             else:
-                value = try_casting_to_number(value)
+                value = parse(value)
             new_row.append(value)
         data.append(new_row)
     setattr(context, name, context.spark.createDataFrame(data).toDF(*cols_l))
@@ -33,4 +33,4 @@ def step_impl(context, left, right):
     left_df.show()
     right_df.show()
 
-    assert df_equals(left_df, right_df)
+    assert df_equals(left_df, right_df, check_nullable=True)

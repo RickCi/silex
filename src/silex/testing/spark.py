@@ -20,7 +20,7 @@ def data_equals(df1: DataFrame, df2: DataFrame):
     return set(data1) == set(data2)
 
 
-def df_equals(df1: DataFrame, df2: DataFrame, check_nullable=False):
+def df_equals(df1: DataFrame, df2: DataFrame, check_nullable):
     return schema_equals(df1, df2, check_nullable=check_nullable) and data_equals(
         df1, df2
     )
