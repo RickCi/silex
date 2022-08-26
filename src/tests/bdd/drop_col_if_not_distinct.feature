@@ -1,4 +1,3 @@
-@wip
 Feature: Dropping columns for not having distinct values
     Background:
       Given a Spark Session
