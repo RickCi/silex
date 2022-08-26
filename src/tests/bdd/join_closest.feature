@@ -45,3 +45,25 @@ Feature: Join on closest date
       And parameters "{"id_cols": ["id"], "date_col": "date", "other_date_col": "date2"}"
       When we do "join_closest_date" on tables [left,right] and save to "output" table
       Then the "output" table matches the "expected" table
+    Scenario: Multiple id columns
+      Given a table named "left"
+        | id | id2 | date       | left  |
+        | 0  | a   | 2022-01-01 | 10    |
+        | 1  | b   | 2022-01-02 | 11    |
+      And a table named "right"
+        | id | id2 | date2      | right |
+        | 2  | a   | 2022-01-02 | OK    |
+        | 2  | a   | 2022-01-05 | KO    |
+        | 0  | a   | 2022-01-10 | KO    |
+        | 0  | a   | 2022-01-02 | OK    |
+        | 0  | b   | 2022-01-05 | KO    |
+        | 1  | a   | 2022-01-01 | KO    |
+        | 1  | b   | 2022-01-02 | OK    |
+        | 1  | b   | 2022-01-10 | KO    |
+      And a table named "expected"
+        | id | id2 | date       | left  | date2      | right |
+        | 0  | a   | 2022-01-01 | 10    | 2022-01-02 | OK    |
+        | 1  | b   | 2022-01-02 | 11    | 2022-01-02 | OK    |
+      And parameters "{"id_cols": ["id", "id2"], "date_col": "date", "other_date_col": "date2"}"
+      When we do "join_closest_date" on tables [left,right] and save to "output" table
+      Then the "output" table matches the "expected" table
