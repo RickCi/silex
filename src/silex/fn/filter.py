@@ -2,7 +2,7 @@ import pyspark.sql.functions as F
 from pyspark.sql import DataFrame
 
 
-def filter_range(
+def filter_on_range(
     df: DataFrame,
     col: str,
     from_,
