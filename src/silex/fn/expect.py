@@ -3,7 +3,13 @@ from typing import Any, Collection, List, Union
 import pyspark.sql.functions as F
 from pyspark.sql import DataFrame
 
-from silex.exception import SilexDuplicateIdsException, SilexExpectException
+from silex.exception import (
+    SilexDuplicateIdsException,
+    SilexMissingColumnException,
+    SilexMissingColumnsException,
+    SilexMissingValuesException,
+    SilexUnexpectedValuesException,
+)
 
 
 def expect_unique_id(df: DataFrame, cols: Union[str, List[str]]) -> DataFrame:
@@ -14,7 +20,7 @@ def expect_unique_id(df: DataFrame, cols: Union[str, List[str]]) -> DataFrame:
 
 def expect_column(df: DataFrame, col: str) -> DataFrame:
     if col not in df.columns:
-        raise SilexExpectException(f"Missing column: {col}")
+        raise SilexMissingColumnException(col)
     return df
 
 
@@ -24,7 +30,7 @@ def expect_columns(df: DataFrame, cols: Union[str, List[str]]) -> DataFrame:
         if col not in df.columns:
             missing_cols.add(col)
     if len(missing_cols) > 0:
-        raise SilexExpectException(f"Missing column(s): {missing_cols}")
+        raise SilexMissingColumnsException(missing_cols)
     return df
 
 
@@ -49,13 +55,10 @@ def expect_distinct_values_equal_set(
     for col in cols:
         distinct_v.update([row[col] for row in df.select(col).distinct().collect()])
         if not distinct_v.issubset(values):
-            raise SilexExpectException(
-                f"column '{col}' has values outside of input set"
-            )
+            raise SilexUnexpectedValuesException(col)
 
     if distinct_v != set(values):
-        msg = f"set of values are not equal: len(found)={len(distinct_v)} != len(expected)={len(values)}"
-        raise SilexExpectException(msg)
+        raise SilexMissingValuesException(found=distinct_v, expected=values)
     return df
 
 
