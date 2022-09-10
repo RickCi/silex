@@ -8,6 +8,8 @@
 [![Code style: Black](https://img.shields.io/badge/Codestyle-Black-black?style=for-the-badge)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=for-the-badge&labelColor=ef8336)](https://pycqa.github.io/isort/)
 [![Linter: Flake8](https://img.shields.io/badge/Linter-Flake8-black?style=for-the-badge)](https://github.com/PyCQA/flake8)
+[![try/except style: tryceratops](https://img.shields.io/badge/try%2Fexcept%20style-tryceratops%20%F0%9F%A6%96%E2%9C%A8-black?style=for-the-badge)](https://github.com/guilatrova/tryceratops)
+
 [![Typing: MyPy](https://img.shields.io/badge/Typing-MyPy-blue?style=for-the-badge)](https://github.com/python/mypy)
 [![Security: Bandit](https://img.shields.io/badge/Security-Bandit-critical?style=for-the-badge)](https://github.com/PyCQA/bandit)
 
@@ -16,7 +18,7 @@
 [![Git: Conventional](https://img.shields.io/badge/Git-conventional-ff69b4?style=for-the-badge)](https://www.conventionalcommits.org)
 [![Version: Semantic](https://img.shields.io/badge/Version-Semantic-black?style=for-the-badge)](https://semver.org/)
 
-![Apache Spark](https://img.shields.io/static/v1?style=for-the-badge&message=Apache+Spark&color=E25A1C&logo=Apache+Spark&logoColor=FFFFFF&label=)
+![Apache Spark](https://img.shields.io/static/v1?style=for-the-badge&message=Apache+Spark+%20+3&color=E25A1C&logo=Apache+Spark&logoColor=FFFFFF&label=)
 
 ## TLDR
 
@@ -27,7 +29,7 @@ Silex is a Data Engineering library to extend PySpark.
 ### Pre-requisites
 
 - Python 3.8 or above
-- Spark 3.2 or above
+- Spark 3 or above
 
 ### Installation
 
