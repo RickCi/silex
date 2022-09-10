@@ -26,3 +26,18 @@ def step_impl(context, op: str, ins: str, out: str):
     fn = getattr(dfs[0], op)
     output: DataFrame = fn(*dfs[1:], **params)
     setattr(context, out, output)
+
+
+@step('we try doing "{op}" on table "{in_}" and save the result to "{out}"')
+def step_impl(context, op: str, in_: str, out: str):
+    if hasattr(context, "params"):
+        params: dict = context.params
+    else:
+        params = dict()
+    df: DataFrame = getattr(context, in_)
+    fn = getattr(df, op)
+    try:
+        output = fn(**params)
+    except Exception as e:
+        output = e
+    setattr(context, out, output)
