@@ -13,6 +13,8 @@ def has_column(df: DataFrame, col: str) -> bool:
 
 
 def has_columns(df: DataFrame, cols: Union[str, List[str]]) -> bool:
+    if isinstance(cols, str):
+        cols = [cols]
     return all((col in df.columns for col in cols))
 
 
@@ -20,7 +22,7 @@ def has_distinct_values_in_set(
     df: DataFrame, cols: Union[str, List[str]], values: Collection[Any]
 ) -> bool:
     try:
-        df.expect_distinct_values_in_set(cols=cols, values=values)
+        df.expect_distinct_values_in_set(cols=cols, values=values)  # type: ignore[operator]
     except Exception:
         return False
     else:
@@ -31,7 +33,7 @@ def has_distinct_values_equal_set(
     df: DataFrame, cols: Union[str, List[str]], values: Collection[Any]
 ) -> bool:
     try:
-        df.expect_distinct_values_equal_set(cols=cols, values=values)
+        df.expect_distinct_values_equal_set(cols=cols, values=values)  # type: ignore[operator]
     except Exception:
         return False
     else:
@@ -63,6 +65,8 @@ def _check_value_between(
     max_v: Any,
     fn,
 ):
+    if isinstance(cols, str):
+        cols = [cols]
     for col in cols:
         found_value = df.select(fn(col).alias(col)).collect()[0][col]
         if not (min_v <= found_value <= max_v):
