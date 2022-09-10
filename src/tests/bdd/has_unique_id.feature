@@ -2,7 +2,7 @@ Feature: has_unique_id
   Background:
     Given a Spark Session
     And dataframes are extended
-  Scenario: Has column returns True
+  Scenario: Has unique id returns True
     Given a table named "input"
       | id |
       | 0  |
@@ -11,7 +11,7 @@ Feature: has_unique_id
     And parameters "{"cols": "id"}"
     When we try doing "has_unique_id" on table "input" and save the result to "output"
     Then the "output" equals to "<TRUE>"
-  Scenario: Has column returns False
+  Scenario: Has unique idreturns False
     Given a table named "input"
       | id |
       | 0  |
@@ -20,7 +20,7 @@ Feature: has_unique_id
     And parameters "{"cols": "id"}"
     When we try doing "has_unique_id" on table "input" and save the result to "output"
     Then the "output" equals to "<FALSE>"
-  Scenario: Has column returns True, several cols
+  Scenario: Has unique id returns True, several cols
     Given a table named "input"
       | id | id2 |
       | 0  | 0   |
@@ -29,7 +29,7 @@ Feature: has_unique_id
     And parameters "{"cols": ["id", "id2"]}"
     When we try doing "has_unique_id" on table "input" and save the result to "output"
     Then the "output" equals to "<TRUE>"
-  Scenario: Has column returns False, several cols
+  Scenario: Has unique id returns False, several cols
     Given a table named "input"
       | id | id2 |
       | 0  | 0   |
