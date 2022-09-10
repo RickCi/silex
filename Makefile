@@ -36,7 +36,7 @@ test_bdd:
 	python -m behave $(SOURCE_CODE_TEST_BDD)
 
 test_bdd_wip:
-	python -m behave $(SOURCE_CODE_TEST_BDD) --no-capture --wip
+	python -m behave $(SOURCE_CODE_TEST_BDD) --no-capture --wip --color
 
 test_static:
 	python -m black --check $(SOURCE_CODE)
