@@ -9,6 +9,9 @@ exclude =
 ignore =
     # FIXME
     T100,
+    T101,
+    # shadowing a python builtin -> quite useful for function parameters
+    A002,
     # class attribute named after a python builtin
     A003,
     # missing trailing comma

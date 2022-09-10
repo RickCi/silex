@@ -9,7 +9,7 @@ packages = [ { include = "silex", from = "src" } ]
 
 [tool.poetry.dependencies]
 python = ">=3.8, <4"
-pyspark = ">=3.2.2"
+pyspark = ">=3"
 
 [tool.poetry.dev-dependencies]
 bandit = "*"               # security practices                    https://github.com/PyCQA/bandit
@@ -29,6 +29,7 @@ pylint = "*"               # code analysis                         https://www.p
 pytest = "*"               # unit tests                            https://docs.pytest.org/en/latest/
 pytest-cov = "*"           # unit tests coverage
 safety = "*"               # check for package vulnerabilities     https://github.com/pyupio/safety
+tryceratops = "^1.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
