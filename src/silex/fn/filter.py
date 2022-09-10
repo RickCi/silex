@@ -1,3 +1,5 @@
+from typing import Any
+
 import pyspark.sql.functions as F
 from pyspark.sql import DataFrame
 
@@ -5,8 +7,8 @@ from pyspark.sql import DataFrame
 def filter_on_range(
     df: DataFrame,
     col: str,
-    from_,
-    to,
+    from_: Any,
+    to: Any,
     include_from: bool = True,
     include_to: bool = True,
 ) -> DataFrame:

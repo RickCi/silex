@@ -30,6 +30,7 @@ pytest = "*"               # unit tests                            https://docs.
 pytest-cov = "*"           # unit tests coverage
 safety = "*"               # check for package vulnerabilities     https://github.com/pyupio/safety
 tryceratops = "^1.1.0"
+ipython = "^8.5.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
