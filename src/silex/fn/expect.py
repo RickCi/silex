@@ -8,6 +8,7 @@ from silex.exception import (
     SilexMissingColumnException,
     SilexMissingColumnsException,
     SilexMissingValuesException,
+    SilexUnexpectedValueException,
     SilexUnexpectedValuesException,
 )
 
@@ -65,16 +66,22 @@ def expect_distinct_values_equal_set(
 def expect_min_value_between(
     df: DataFrame, cols: Union[str, List[str]], min_v: Any, max_v: Any
 ) -> DataFrame:
-    ...
+    if not df.has_min_value_between(cols=cols, min_v=min_v, max_v=max_v):
+        raise SilexUnexpectedValueException()
+    return df
 
 
 def expect_avg_value_between(
     df: DataFrame, cols: Union[str, List[str]], min_v: Any, max_v: Any
 ) -> DataFrame:
-    ...
+    if not df.has_avg_value_between(cols=cols, min_v=min_v, max_v=max_v):
+        raise SilexUnexpectedValueException()
+    return df
 
 
 def expect_max_value_between(
     df: DataFrame, cols: Union[str, List[str]], min_v: Any, max_v: Any
 ) -> DataFrame:
-    ...
+    if not df.has_max_value_between(cols=cols, min_v=min_v, max_v=max_v):
+        raise SilexUnexpectedValueException()
+    return df

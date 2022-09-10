@@ -26,6 +26,11 @@ class SilexUnexpectedValuesException(SilexExpectException):
         super().__init__(f"Unexpected values for column: {col}")
 
 
+class SilexUnexpectedValueException(SilexExpectException):
+    def __init__(self):
+        super().__init__("Unexpected value")
+
+
 class SilexMissingValuesException(SilexExpectException):
     def __init__(self, found, expected):
         msg = f"set of values are not equal: len(found)={len(found)} != len(expected)={len(expected)}"
