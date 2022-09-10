@@ -4,15 +4,15 @@ from pyspark.sql import DataFrame
 
 
 def has_unique_id(df: DataFrame, cols: Union[str, List[str]]) -> bool:
-    ...
+    return df.count() == df.select(cols).distinct().count()
 
 
 def has_column(df: DataFrame, col: str) -> bool:
-    ...
+    return col in df.columns
 
 
 def has_columns(df: DataFrame, cols: Union[str, List[str]]) -> bool:
-    ...
+    return all((col in df.columns for col in cols))
 
 
 def has_distinct_values_in_set(

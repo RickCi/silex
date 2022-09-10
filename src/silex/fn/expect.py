@@ -13,13 +13,13 @@ from silex.exception import (
 
 
 def expect_unique_id(df: DataFrame, cols: Union[str, List[str]]) -> DataFrame:
-    if df.count() != df.select(cols).distinct().count():
+    if not df.has_unique_id(cols):
         raise SilexDuplicateIdsException(cols)
     return df
 
 
 def expect_column(df: DataFrame, col: str) -> DataFrame:
-    if col not in df.columns:
+    if not df.has_column(col):
         raise SilexMissingColumnException(col)
     return df
 
