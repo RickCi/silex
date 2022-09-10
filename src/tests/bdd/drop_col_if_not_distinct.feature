@@ -26,7 +26,7 @@ Feature: Dropping columns for not having distinct values
         | 0  |
         | 1  |
         | 1  |
-          Scenario: Distinct values
+    Scenario: Distinct values
       Given a table named "input"
         | id | value  |
         | 0  | a      |
