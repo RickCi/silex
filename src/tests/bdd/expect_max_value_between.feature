@@ -3,7 +3,7 @@ Feature: expect_max_value_between
     Given a Spark Session
     And dataframes are extended
 
-  Scenario: Expecting min value outside of range raises SilexUnexpectedValueException
+  Scenario: Expecting max value outside of range raises SilexUnexpectedValueException
     Given a table named "input"
       | id | value | bis |
       | 0  | 1     | a   |
@@ -12,7 +12,7 @@ Feature: expect_max_value_between
     And parameters "{"cols": ["id", "value"], "min_v": -10, "max_v": 1.9}"
     When we try doing "expect_max_value_between" on table "input" and save the result to "output"
     Then the "output" is of instance of "SilexUnexpectedValueException"
-  Scenario: Expecting distinct values equals set raises a SilexUnexpectedValuesException when superset
+  Scenario: Expecting max value within range
     Given a table named "input"
       | id | value | bis |
       | 0  | 1     | a   |
