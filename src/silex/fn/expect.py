@@ -70,7 +70,9 @@ def expect_distinct_values_equal_set(
 def expect_min_value_between(
     df: DataFrame, cols: Union[str, List[str]], min_v: Any, max_v: Any
 ) -> DataFrame:
+    print("****************")
     if not df.has_min_value_between(cols=cols, min_v=min_v, max_v=max_v):
+        print("****************")
         raise SilexUnexpectedValueException()
     return df
 

@@ -64,10 +64,7 @@ def _check_value_between(
     fn,
 ):
     for col in cols:
-        has = (
-            df.select(fn(col).alias(col)).filter(min_v <= F.col(col) <= max_v)
-            # .filter(F.col(col) >= min_v & F.col(col) <= max_v)
-        )
-        if not has:
+        found_value = df.select(fn(col).alias(col)).collect()[0][col]
+        if not (min_v <= found_value <= max_v):
             return False
     return True
