@@ -1,6 +1,6 @@
 from behave import step
 
-from silex.df import extend_dataframes
+import silex
 from silex.utils.spark import get_spark_session
 
 
@@ -11,4 +11,4 @@ def step_impl(context):
 
 @step("dataframes are extended")
 def step_impl(context):
-    extend_dataframes()
+    silex.extend_dataframes()

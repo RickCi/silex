@@ -9,7 +9,7 @@ Feature: expect_min_value_between
       | 0  | 1     | a   |
       | 1  | 2     | a   |
       | 2  | 0     | a   |
-    And parameters "{"cols": ["id", "value"], "min_v": 1, "max_v": 3}"
+    And parameters "{"cols": ["id", "value"], "min": 1, "max": 3}"
     When we try doing "expect_min_value_between" on table "input" and save the result to "output"
     Then the "output" is of instance of "SilexUnexpectedValueException"
   Scenario: Expecting min value outside of range raises SilexUnexpectedValueException, single col
@@ -18,7 +18,7 @@ Feature: expect_min_value_between
       | 0  | 1     | a   |
       | 1  | 2     | a   |
       | 2  | 0     | a   |
-    And parameters "{"cols": "id", "min_v": 1, "max_v": 3}"
+    And parameters "{"cols": "id", "min": 1, "max": 3}"
     When we try doing "expect_min_value_between" on table "input" and save the result to "output"
     Then the "output" is of instance of "SilexUnexpectedValueException"
   Scenario: Expecting min value within range
@@ -32,6 +32,6 @@ Feature: expect_min_value_between
       | 0  | 1     | a   |
       | 1  | 2     | a   |
       | 2  | 0     | a   |
-    And parameters "{"cols": ["id", "value"], "min_v": -1, "max_v": 3}"
+    And parameters "{"cols": ["id", "value"], "min": -1, "max": 3}"
     When we try doing "expect_min_value_between" on table "input" and save the result to "output"
     Then the "output" table matches the "expected" table

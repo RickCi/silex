@@ -41,34 +41,34 @@ def has_distinct_values_equal_set(
 
 
 def has_min_value_between(
-    df: DataFrame, cols: Union[str, List[str]], min_v: Any, max_v: Any
+    df: DataFrame, cols: Union[str, List[str]], min: Any, max: Any
 ) -> bool:
-    return _check_value_between(df=df, cols=cols, min_v=min_v, max_v=max_v, fn=F.min)
+    return _check_value_between(df=df, cols=cols, min=min, max=max, fn=F.min)
 
 
 def has_avg_value_between(
-    df: DataFrame, cols: Union[str, List[str]], min_v: Any, max_v: Any
+    df: DataFrame, cols: Union[str, List[str]], min: Any, max: Any
 ) -> bool:
-    return _check_value_between(df=df, cols=cols, min_v=min_v, max_v=max_v, fn=F.avg)
+    return _check_value_between(df=df, cols=cols, min=min, max=max, fn=F.avg)
 
 
 def has_max_value_between(
-    df: DataFrame, cols: Union[str, List[str]], min_v: Any, max_v: Any
+    df: DataFrame, cols: Union[str, List[str]], min: Any, max: Any
 ) -> bool:
-    return _check_value_between(df=df, cols=cols, min_v=min_v, max_v=max_v, fn=F.max)
+    return _check_value_between(df=df, cols=cols, min=min, max=max, fn=F.max)
 
 
 def _check_value_between(
     df: DataFrame,
     cols: Union[str, List[str]],
-    min_v: Any,
-    max_v: Any,
+    min: Any,
+    max: Any,
     fn,
 ):
     if isinstance(cols, str):
         cols = [cols]
     for col in cols:
         found_value = df.select(fn(col).alias(col)).collect()[0][col]
-        if not (min_v <= found_value <= max_v):
+        if not (min <= found_value <= max):
             return False
     return True

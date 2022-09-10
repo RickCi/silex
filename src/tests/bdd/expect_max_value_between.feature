@@ -9,7 +9,7 @@ Feature: expect_max_value_between
       | 0  | 1     | a   |
       | 1  | 2     | a   |
       | 2  | 0     | a   |
-    And parameters "{"cols": ["id", "value"], "min_v": -10, "max_v": 1.9}"
+    And parameters "{"cols": ["id", "value"], "min": -10, "max": 1.9}"
     When we try doing "expect_max_value_between" on table "input" and save the result to "output"
     Then the "output" is of instance of "SilexUnexpectedValueException"
   Scenario: Expecting max value within range
@@ -23,6 +23,6 @@ Feature: expect_max_value_between
       | 0  | 1     | a   |
       | 1  | 2     | a   |
       | 2  | 0     | a   |
-    And parameters "{"cols": ["id", "value"], "min_v": 1.9, "max_v": 2.1}"
+    And parameters "{"cols": ["id", "value"], "min": 1.9, "max": 2.1}"
     When we try doing "expect_max_value_between" on table "input" and save the result to "output"
     Then the "output" table matches the "expected" table
