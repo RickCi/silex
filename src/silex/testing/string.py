@@ -4,16 +4,20 @@ from typing import Union
 
 def parse(s: str) -> Union[None, str, bool, int, float]:
     """Try to cast to:
-        1. float
-        2. int
+        1. None: <null> (case is ignored)
+        2. bool: {<true>, <false>} (case is ignored)
+        3. integer
+        4. float
 
-    Returns: cast float, cast int or input string
+    or keep as string.
+
+    Returns: None
 
     >>> parse("<null>") is None
     True
     >>> parse("<true>")
     True
-    >>> parse("<false>")
+    >>> parse("<FALSE>")
     False
     >>> parse("1")
     1
