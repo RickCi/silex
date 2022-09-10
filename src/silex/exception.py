@@ -1,3 +1,6 @@
+from typing import List, Optional
+
+
 class SilexException(Exception):
     pass
 
@@ -22,8 +25,13 @@ class SilexMissingColumnsException(SilexExpectException):
 
 
 class SilexUnexpectedValuesException(SilexExpectException):
-    def __init__(self, col):
-        super().__init__(f"Unexpected values for column: {col}")
+    def __init__(self, col: Optional[str] = None, cols: Optional[List[str]] = None):
+        if col:
+            super().__init__(f"Unexpected values for column: {col}")
+        elif cols:
+            super().__init__(f"Unexpected values for columns: {cols}")
+        else:
+            super().__init__("Unexpected values")
 
 
 class SilexUnexpectedValueException(SilexExpectException):

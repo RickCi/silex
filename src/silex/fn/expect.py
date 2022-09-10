@@ -45,8 +45,12 @@ def expect_distinct_values_in_set(
         F.assert_true(F.col(col).isin(list(set(values))), errMsg=err_msg)
         for col in cols
     ]
-    df.select(*assertions).count()
-    return df
+    try:
+        df.select(*assertions).collect()
+    except Exception as e:
+        raise SilexUnexpectedValuesException(cols=cols) from e
+    else:
+        return df
 
 
 def expect_distinct_values_equal_set(
