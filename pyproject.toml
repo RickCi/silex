@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "silex"
+name = "spark-silex"
 version = "0.0.0"
 description = "Silex adds more sparks to your project!"
 authors = ["RickCi <rci-git@pm.me>"]
