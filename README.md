@@ -2,31 +2,34 @@
 
 Add more 🔥 to [Apache Spark](https://spark.apache.org/)!
 
-[![Python](https://img.shields.io/badge/Python3.8-Python?style=for-the-badge&logo=Python)](https://www.python.org/downloads/release/python-380/)
-[![Manager: Poetry](https://img.shields.io/badge/Manager-Poetry-blue?style=for-the-badge)](https://python-poetry.org/)
-[![Test: BDD](https://img.shields.io/badge/Test-BDD-critical?style=for-the-badge)](https://github.com/behave/behave)
-[![Test: Doctest](https://img.shields.io/badge/Test-Doctest-success?style=for-the-badge)](https://docs.python.org/3/library/doctest.html)
+[![CI](https://img.shields.io/github/workflow/status/rickci/silex/CI?style=flat-square)](https://github.com/RickCi/silex/actions)
+[![Pypi](https://img.shields.io/pypi/v/spark-silex?style=flat-square)](https://pypi.org/project/spark-silex/)
+[![License](https://img.shields.io/github/license/RickCi/silex?style=flat-square)](https://github.com/RickCi/silex/blob/main/LICENSE)
+[![Python](https://img.shields.io/badge/Python_3.8|3.9|3.10-Python?style=flat-square&logo=Python)](https://www.python.org/downloads/release/python-380/)
+![Apache Spark](https://img.shields.io/static/v1?style=flat-square&message=Apache+Spark+%20+3&color=E25A1C&logo=Apache+Spark&logoColor=FFFFFF&label=)
 
-[![Code style: Black](https://img.shields.io/badge/Codestyle-Black-black?style=for-the-badge)](https://github.com/psf/black)
-[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=for-the-badge&labelColor=ef8336)](https://pycqa.github.io/isort/)
-[![Linter: Flake8](https://img.shields.io/badge/Linter-Flake8-black?style=for-the-badge)](https://github.com/PyCQA/flake8)
-[![try/except style: tryceratops](https://img.shields.io/badge/try%2Fexcept%20style-tryceratops%20%F0%9F%A6%96%E2%9C%A8-black?style=for-the-badge)](https://github.com/guilatrova/tryceratops)
-
-[![Typing: MyPy](https://img.shields.io/badge/Typing-MyPy-blue?style=for-the-badge)](https://github.com/python/mypy)
-[![Security: Bandit](https://img.shields.io/badge/Security-Bandit-critical?style=for-the-badge)](https://github.com/PyCQA/bandit)
-
-
-[![Git: Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&style=for-the-badge&logoColor=white)](https://pre-commit.com/)
-[![Git: Conventional](https://img.shields.io/badge/Git-conventional-ff69b4?style=for-the-badge)](https://www.conventionalcommits.org)
-[![Version: Semantic](https://img.shields.io/badge/Version-Semantic-black?style=for-the-badge)](https://semver.org/)
-
-![Apache Spark](https://img.shields.io/static/v1?style=for-the-badge&message=Apache+Spark+%20+3&color=E25A1C&logo=Apache+Spark&logoColor=FFFFFF&label=)
+[![Manager: Poetry](https://img.shields.io/badge/Manager-Poetry-blue?style=flat-square)](https://python-poetry.org/)
+[![Test: BDD](https://img.shields.io/badge/Test-BDD-critical?style=flat-square)](https://github.com/behave/behave)
+[![Test: Doctest](https://img.shields.io/badge/Test-Doctest-success?style=flat-square)](https://docs.python.org/3/library/doctest.html)
+[![Code style: Black](https://img.shields.io/badge/Codestyle-Black-black?style=flat-square)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat-square&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![Linter: Flake8](https://img.shields.io/badge/Linter-Flake8-black?style=flat-square)](https://github.com/PyCQA/flake8)
+[![try/except style: tryceratops](https://img.shields.io/badge/try%2Fexcept%20style-tryceratops%20%F0%9F%A6%96%E2%9C%A8-black?style=flat-square)](https://github.com/guilatrova/tryceratops)
+[![Typing: MyPy](https://img.shields.io/badge/Typing-MyPy-blue?style=flat-square)](https://github.com/python/mypy)
+[![Security: Bandit](https://img.shields.io/badge/Security-Bandit-critical?style=flat-square)](https://github.com/PyCQA/bandit)
+[![Git: Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&style=flat-square&logoColor=white)](https://pre-commit.com/)
+[![Git: Conventional](https://img.shields.io/badge/Git-conventional-ff69b4?style=flat-square)](https://www.conventionalcommits.org)
+[![Version: Semantic](https://img.shields.io/badge/Version-Semantic-black?style=flat-square)](https://semver.org/)
 
 ## TLDR
 
 Silex is a Data Engineering library to extend PySpark.
 
 You don't need another class, just use PySpark as usual and you have new functions to your DataFrames!
+
+```shell
+pip install spark-silex
+```
 
 ```python
 import silex
@@ -94,7 +97,7 @@ def join_closest_date(self, other: DataFrame, ...) -> DataFrame: ...
 ### Installation
 
 ```shell
-pip install < # TODO >
+pip install spark-silex
 ```
 
 ### Usage

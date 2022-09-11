@@ -8,10 +8,11 @@ SOURCE_CODE_TEST_BDD = src/tests/bdd
 COVERAGE_FAIL_UNDER = 90
 
 ########
-# CORE #
+# CD   #
 ########
 
-# commands specific to your project such as starting a web server
+publish:
+	semantic-release publish -D commit_author="rci <rci-git@pm.me>"
 
 ########
 # DEV  #
