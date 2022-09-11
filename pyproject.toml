@@ -4,6 +4,18 @@ version = "0.1.0"
 description = "Silex adds more sparks to your project!"
 authors = ["RickCi <rci-git@pm.me>"]
 readme = "README.md"
+license = "MIT"
+include = ["LICENSE"]
+homepage = "https://github.com/RickCi/silex"
+repository = "https://github.com/RickCi/silex"
+keywords = ["spark", "dataframe"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 
 packages = [ { include = "silex", from = "src" } ]
 
