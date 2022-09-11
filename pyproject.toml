@@ -31,6 +31,19 @@ pytest-cov = "*"           # unit tests coverage
 safety = "*"               # check for package vulnerabilities     https://github.com/pyupio/safety
 tryceratops = "^1.1.0"
 ipython = "^8.5.0"
+# CD
+python-semantic-release = "^7.31.4"
+
+[tool.poetry.urls]
+"Changelog" = "https://github.com/RickCi/silex/blob/master/CHANGELOG.md"
+
+[tool.semantic_release]
+version_variable = [ "src/silex/__init__.py:__version__" ]
+version_toml = [ "pyproject.toml:tool.poetry.version" ]
+branch = "master"
+upload_to_pypi = true
+upload_to_release = true
+build_command = "pip install poetry && poetry build"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
