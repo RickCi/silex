@@ -27,8 +27,8 @@ pre_commit_force:
 
 # format code
 fmt:
-	python -m black $(SOURCE_CODE)
-	python -m isort --profile black $(SOURCE_CODE)
+	python -m black $(SOURCE_CODE) examples
+	python -m isort --profile black $(SOURCE_CODE) examples
 
 # run all tests
 test: test_static test_coverage

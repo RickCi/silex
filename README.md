@@ -44,10 +44,17 @@ df: DataFrame = df.drop_col_if_na()  # new function! and still a regular Spark D
 # scroll for more information!
 ```
 
+### TODO
+
+- [ ] IDE auto-completions
+- [ ] show-off coverage
+- [ ] more documentation and examples
+- [ ] more functions
+
 ### Available functions
 
 ```python
-# assertions (raises an Exception if not met /!\)
+# assertions => raises an Exception if not met /!\
 def expect_column(self, col: str) -> DataFrame: ...
 def expect_columns(self, cols: Union[str, List[str]]) -> DataFrame: ...
 
@@ -101,6 +108,8 @@ pip install spark-silex
 ```
 
 ### Usage
+
+[examples/](examples/)
 
 #### By extending DataFrames! ⚡
 
