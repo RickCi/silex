@@ -39,6 +39,9 @@ test_bdd:
 test_bdd_wip:
 	python -m behave $(SOURCE_CODE_TEST_BDD) --no-capture --wip --color
 
+test_doc:
+	pytest --disable-pytest-warnings -x -s --doctest-modules $(SOURCE_CODE)
+
 test_static:
 	python -m black --check $(SOURCE_CODE)
 	python -m isort --profile black --check $(SOURCE_CODE)
@@ -48,7 +51,7 @@ test_static:
 	python -m mypy $(SOURCE_CODE) --exclude $(SOURCE_CODE_TEST) --explicit-package-bases --namespace-packages --ignore-missing-imports --show-error-codes
 
 test_coverage:
-	python -m coverage run --source=$(SOURCE_CODE_MAIN) -m pytest --disable-pytest-warnings -x -s $(SOURCE_CODE_MAIN) --doctest-modules
+	python -m coverage run --source=$(SOURCE_CODE_MAIN) -m pytest --disable-pytest-warnings -x -s --doctest-modules $(SOURCE_CODE_MAIN)
 	python -m coverage run --source=$(SOURCE_CODE_MAIN) --append -m behave $(SOURCE_CODE_TEST_BDD)
 	python -m coverage report --show-missing --fail-under=$(COVERAGE_FAIL_UNDER)
 	python -m coverage html -d coverage_html
